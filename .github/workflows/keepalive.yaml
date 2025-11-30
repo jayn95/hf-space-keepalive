@@ -1,0 +1,18 @@
+name: Keep Hugging Face Space Alive
+
+# Run on a schedule (cron) and also manually (workflow_dispatch)
+on:
+  schedule:
+    - cron: "*/20 * * * *"  # every 20 minutes
+  workflow_dispatch:
+
+jobs:
+  ping_spaces:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Gingivitis HF Space
+        run: curl -I https://deepdentteam-deepdent-gingivitis.hf.space/
+
+      - name: Ping Second HF Space
+        run: curl -I https://deepdentteam-another-space.hf.space/
